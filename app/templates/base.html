@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block titulo %}appblue{% endblock %}</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; background: #f4f6fb; color: #222; }
+        header { background: #1f4fd8; color: #fff; padding: 14px 24px; }
+        header h2 { margin: 0; font-size: 20px; }
+        nav { background: #173aa3; padding: 8px 24px; }
+        nav a { color: #fff; margin-right: 18px; text-decoration: none; }
+        nav a:hover { text-decoration: underline; }
+        main { padding: 24px; }
+        footer { padding: 14px 24px; font-size: 13px; color: #666; border-top: 1px solid #ddd; }
+    </style>
+</head>
+<body>
+    <header>
+        <h2>appblue</h2>
+    </header>
+    <nav>
+        <a href="{{ url_for('admin.panel') }}">Panel</a>
+        <a href="{{ url_for('blog.entrada', id=1) }}">Blog</a>
+        <a href="{{ url_for('productos.lista_productos') }}">Productos</a>
+        <a href="{{ url_for('usuarios.lista_usuarios') }}">Usuarios</a>
+    </nav>
+    <main>
+        {% block contenido %}{% endblock %}
+    </main>
+    <footer>
+        appblue &middot; Flask Blueprints
+    </footer>
+</body>
+</html>
